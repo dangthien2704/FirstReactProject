@@ -1,0 +1,7 @@
+.header__nav__login {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-weight: 700;
+}

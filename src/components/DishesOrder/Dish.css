@@ -1,0 +1,111 @@
+/*.quantity {
+  display: flex;
+  width: 160px;
+}
+
+it will support chrome and firefox
+.quantity input[type="number"]::-webkit-inner-spin-button,
+.quantity input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.dish__quantity input,
+.dish__quantity button {
+  width: 50px;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 900;
+  background: white;
+  border: 1px solid #aaa;
+}
+
+.quantity input {
+  border-left: none;
+  border-right: none;
+} 
+*/
+
+/* input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+.dish {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  border-bottom: 1px solid;
+  border-color: grey;
+}
+
+.dish__info {
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.dish__infoName {
+  margin-bottom: -15px;
+  color: rgb(182, 128, 27);
+  font-weight: 600;
+}
+
+.dish__infoIngredients {
+  margin-bottom: -15px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.dish__infoPrice {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(190, 23, 23);
+}
+
+.dish__quantity {
+  /* position: relative; */
+  margin-right: 20px;
+}
+
+.dish__quantityLineOne {
+  display: flex;
+  align-items: center;
+  margin-bottom: -15px;
+  font-size: 14px;
+}
+
+.dish__quantityInput {
+  height: 4px;
+  width: 20px;
+  margin-left: 10px;
+  width: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: white;
+  align-items: center;
+  position: relative;
+}
+
+.dish__quantityLineTwo {
+  text-align: center;
+}
+
+.dish__quantityLineTwo button {
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgb(19, 104, 64);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dish__quantityLineOne h3 {
+  font-size: 15px;
+  color: rgb(182, 128, 27);
+  font-weight: 600;
+}
