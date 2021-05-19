@@ -12,13 +12,15 @@
   position: fixed;
   top: 30vh;
   /* margin: auto; */
-  left: 10%;
-  width: 80%;
-  z-index: 100;
+  left: 15%;
+  width: 70%;
+  z-index: 12;
   overflow: hidden;
   background-color: white;
   flex-direction: column;
   align-content: center;
+  max-height: 25rem;
+  overflow: scroll;
 }
 
 .modal__header {
@@ -106,6 +108,8 @@
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  margin: auto;
+  width: 90%;
 }
 
 .modal__total h4 {

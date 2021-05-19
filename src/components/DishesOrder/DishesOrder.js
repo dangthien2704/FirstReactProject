@@ -16,6 +16,7 @@ function DishesOrder() {
           quantity={dish.quantity}
           key={dish.id}
           id={dish.id}
+          index={index}
           // index={index}
         />
       ))}

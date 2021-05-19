@@ -1,8 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "./Cart.css";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { CartContext } from "../../store/CartContext";
-import CartModal from "./CartModal";
 
 function Cart(props) {
   const { cart } = useContext(CartContext);
@@ -10,30 +9,12 @@ function Cart(props) {
     return acc + curr.quantity;
   }, 0);
 
-  const [cartPopup, setCartPopup] = useState(false);
-  const handlerCartModal = () => {
-    setCartPopup(true);
-  };
-
-  const handlerCloseModal = () => {
-    setCartPopup(false);
-  };
-  console.log("re-reder");
-  console.log(cartPopup);
   return (
     <div className="cart">
-      <div onClick={handlerCartModal} className="cart__button" y>
+      <div onClick={props.onOpenModal} className="cart__button">
         <ShoppingCartIcon className="cart__icon" />
         <span> Your Cart </span>
         <div className="cart__count">{cartTotal}</div>
-      </div>
-      <div>
-        {cartPopup && (
-          <CartModal
-            setCartPopup={setCartPopup}
-            onCloseModal={handlerCloseModal}
-          />
-        )}
       </div>
     </div>
   );

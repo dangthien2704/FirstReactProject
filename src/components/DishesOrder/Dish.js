@@ -3,31 +3,39 @@ import "./Dish.css";
 import { CartContext } from "../../store/CartContext";
 
 function Dish(props) {
-  // const ctx = useContext(DishContext);
-
   const [amount, setAmount] = useState(0);
 
-  const { setCart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
 
   const handlerAmountChange = (e) => {
     setAmount(e.target.value);
   };
 
-  const handlerAddCart = (newCart) => {
-    setCart((prevCarts) => [newCart, ...prevCarts]);
+  const handlerAddCart = (newItem) => {
+    let existingItem = cart.find((item) => item.id === newItem.id);
+    if (existingItem) {
+      existingItem.quantity += newItem.quantity;
+      setCart([...cart]);
+    } else {
+      setCart([newItem, ...cart]);
+    }
     setAmount(0);
   };
 
   const handlerAddBtn = () => {
-    const newDish = {
-      name: props.name,
-      ingredients: props.ingredients,
-      price: props.price,
-      quantity: +amount,
-      key: Math.random(),
-      id: props.id,
-    };
-    handlerAddCart(newDish);
+    if (+amount > 0) {
+      const newDish = {
+        name: props.name,
+        ingredients: props.ingredients,
+        price: props.price,
+        quantity: props.quantity + +amount,
+        key: Math.random(),
+        id: props.id,
+      };
+      handlerAddCart(newDish);
+    } else {
+      return;
+    }
   };
 
   return (
@@ -54,7 +62,7 @@ function Dish(props) {
         </div>
 
         <div className="dish__quantityLineTwo">
-          <button onClick={handlerAddBtn}>+ Add</button>
+          <button onClick={handlerAddBtn.bind(null, props.index)}>+ Add</button>
         </div>
       </div>
     </div>

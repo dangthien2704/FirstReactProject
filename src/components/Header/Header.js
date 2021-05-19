@@ -2,9 +2,9 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import Cart from "../Cart/Cart";
 import Login from "../Login/Login";
-import { useState } from "react";
+// import { useState } from "react";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="header">
       <h1 className="header__title">Order Your Meals!</h1>
@@ -16,7 +16,7 @@ const Header = () => {
 
       <div className="header__nav">
         <Login />
-        <Cart />
+        <Cart onOpenModal={props.onOpenModal} />
       </div>
     </div>
   );
