@@ -53,6 +53,7 @@
 
 .modal__info__lineTwo {
   display: flex;
+  padding-right: 50px;
   align-items: center;
 }
 
@@ -68,6 +69,8 @@
   font-size: 14px;
   font-weight: 600;
   color: rgb(190, 23, 23);
+  position: relative;
+  left: 0px;
 }
 
 .modal__infoQuantity {
@@ -77,13 +80,14 @@
   color: rgb(83, 80, 80);
   font-size: 10px;
   font-weight: 700;
-  margin-left: 40px;
   padding-left: 12px;
   padding-right: 12px;
   padding-bottom: 5px;
   padding-top: 4px;
   height: 10px;
   display: flex;
+  position: absolute;
+  left: 20%;
 }
 
 .modal__adjustQuantity button {

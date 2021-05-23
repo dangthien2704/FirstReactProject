@@ -4,8 +4,10 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { CartContext } from "../../store/CartContext";
 
 function Cart(props) {
+  // const { initialState } = useContext(CartContext);
   const { cart } = useContext(CartContext);
-  const cartTotal = cart.reduce(function (acc, curr) {
+
+  const cartTotal = cart.basket.reduce(function (acc, curr) {
     return acc + curr.quantity;
   }, 0);
 

@@ -8,14 +8,14 @@ function DishesOrder() {
 
   return (
     <div className="order-list">
-      {dishesData.map((dish, index) => (
+      {dishesData.map((item, index) => (
         <Dish
-          name={dish.name}
-          ingredients={dish.ingredients}
-          price={dish.price}
-          quantity={dish.quantity}
-          key={dish.id}
-          id={dish.id}
+          name={item.name}
+          ingredients={item.ingredients}
+          price={item.price}
+          quantity={item.quantity}
+          key={item.id}
+          id={item.id}
           index={index}
           // index={index}
         />

@@ -10,51 +10,54 @@ const Backdrop = (props) => {
 };
 
 const Modal = (props) => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, dispatchCart } = useContext(CartContext);
 
-  const handlerDecreaseQuantity = (index) => {
-    if (cart[index].quantity < 2) {
-      setCart((prev) => prev.filter((item) => item.id !== cart[index].id));
-    } else {
-      cart[index].quantity -= 1;
-      setCart([...cart]);
-      console.log(cart);
-    }
+  const handlerRemoveCart = (index) => {
+    dispatchCart({
+      type: "REMOVE_FROM_CART",
+      item: cart.basket[index],
+      index: index,
+    });
   };
 
   const handlerIncreaseQuantity = (index) => {
-    cart[index].quantity += 1;
-    setCart([...cart]);
+    dispatchCart({
+      type: "INCREASE_ITEM",
+      item: cart.basket[index],
+      index: index,
+    });
   };
 
-  const totalAmount = cart
+  const totalAmount = cart.basket
     .reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
     .toFixed(2);
 
   const handlerSubmitOrder = (e) => {
     e.preventDefault();
     props.onCloseModal();
-    console.log("Your order is being prepared!", cart);
-    setCart([]);
+    console.log(
+      `The total amount of your order is $${totalAmount} and it is being prepared!`,
+      cart
+    );
+    cart.basket = [];
+    // setCart([]);
   };
   return (
     <Card className="modal">
       <div className="modal__header">
         <h2>Your Order</h2>
       </div>
-      {cart.map((dish, index) => (
-        <div className="modal__item" key={dish.key}>
+      {cart.basket.map((item, index) => (
+        <div className="modal__item" key={item.key}>
           <div className="modal__info">
-            <h3 className="modal__infoName">{dish.name}</h3>
+            <h3 className="modal__infoName">{item.name}</h3>
             <div className="modal__info__lineTwo">
-              <p className="modal__infoPrice">${dish.price}</p>
-              <p className="modal__infoQuantity">x {dish.quantity}</p>
+              <p className="modal__infoPrice">${item.price}</p>
+              <p className="modal__infoQuantity">x {item.quantity}</p>
             </div>
           </div>
           <div className="modal__adjustQuantity">
-            <button onClick={handlerDecreaseQuantity.bind(null, index)}>
-              -
-            </button>
+            <button onClick={handlerRemoveCart.bind(null, index)}>-</button>
             <button onClick={handlerIncreaseQuantity.bind(null, index)}>
               +
             </button>
