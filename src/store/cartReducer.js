@@ -1,5 +1,3 @@
-// import { CartProvider } from "./CartContext";
-
 export const initialState = {
   basket: [],
 };
@@ -18,7 +16,7 @@ export const cartReducer = (state, action) => {
         updatedItem.quantity += action.item.quantity;
         return { ...updatedState };
       } else {
-        return { ...state, basket: [action.item, ...state.basket] };
+        return { ...state, basket: [...state.basket, action.item] };
       }
     case "INCREASE_ITEM":
       const updatedItem = {
