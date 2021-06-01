@@ -34,6 +34,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .dish {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 80%;
   margin: auto;

@@ -3,16 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { CartProvider } from "./store/CartContext";
-import { cartReducer, initialState } from "./store/cartReducer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartProvider
-    // cartReducer={cartReducer} initialState={initialState}
-    >
-      <App />
-    </CartProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

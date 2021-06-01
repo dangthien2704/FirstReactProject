@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import CartModal from "./components/Cart/CartModal";
 import { useState } from "react";
+import { CartProvider } from "./store/CartContext";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -15,7 +16,7 @@ function App() {
   };
 
   return (
-    <div>
+    <CartProvider>
       {cartIsShown && (
         <CartModal
           setCartIsShown={setCartIsShown}
@@ -24,7 +25,7 @@ function App() {
       )}
       <Header onOpenModal={handlerCartModal} />
       <Home />
-    </div>
+    </CartProvider>
   );
 }
 

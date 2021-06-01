@@ -11,7 +11,7 @@ const dishesData = [
     id: 1,
   },
   {
-    name: "Schnitzel",
+    name: "Pizza",
     ingredients: "German ingredients",
     price: 16.5,
     quantity: 0,
@@ -48,18 +48,4 @@ export const CartProvider = (props) => {
       {props.children}
     </CartContext.Provider>
   );
-
-  // const [cart, setCart] = useState([]);
-
-  // return (
-  //   <CartContext.Provider
-  //     value={{
-  //       cart,
-  //       setCart,
-  //       dishesData: dishesData,
-  //     }}
-  //   >
-  //     {props.children}
-  //   </CartContext.Provider>
-  // );
 };
